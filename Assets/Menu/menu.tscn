@@ -1,9 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://cakqjgfdf6jid"]
+[gd_scene load_steps=11 format=3 uid="uid://cakqjgfdf6jid"]
 
 [ext_resource type="Script" path="res://Assets/Menu/menu.gd" id="1_4qxrt"]
 [ext_resource type="Texture2D" uid="uid://bsw7ruhmuuc8c" path="res://icon.svg" id="1_hey3p"]
 [ext_resource type="Texture2D" uid="uid://b4271gnwltlti" path="res://Assets/Menu/resources/Unity.png" id="2_1tprc"]
 [ext_resource type="Texture2D" uid="uid://cr3kwsfu4x0rp" path="res://Assets/Menu/resources/image.png" id="3_rn8a3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_khatt"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rrkb5"]
+bg_color = Color(0.339095, 0.339095, 0.339095, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_68gck"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fbgmu"]
+bg_color = Color(0.337255, 0.337255, 0.337255, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3nw0e"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gtkd8"]
+bg_color = Color(0.337255, 0.337255, 0.337255, 1)
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -48,7 +66,7 @@ scale = Vector2(0.306641, 0.297418)
 texture = ExtResource("1_hey3p")
 
 [node name="Titulo" type="Sprite2D" parent="."]
-position = Vector2(121, 16)
+position = Vector2(120, 27)
 scale = Vector2(0.195786, 0.274621)
 texture = ExtResource("3_rn8a3")
 
@@ -65,20 +83,24 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -36.0
-offset_top = -96.0
+offset_top = -73.0
 offset_right = 36.0
-offset_bottom = -10.0
+offset_bottom = -11.0
 grow_horizontal = 2
 grow_vertical = 0
 
 [node name="Play" type="Button" parent="ContenedorBotones"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_khatt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rrkb5")
 text = "Jugar"
 
 [node name="Opciones" type="Button" parent="ContenedorBotones"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_68gck")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fbgmu")
 text = "Opciones"
 
 [node name="Salir" type="Button" parent="ContenedorBotones"]
@@ -86,6 +108,8 @@ texture_filter = 1
 texture_repeat = 3
 layout_mode = 2
 theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_3nw0e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gtkd8")
 text = "Salir"
 
 [connection signal="pressed" from="ContenedorBotones/Play" to="." method="_on_play_pressed"]
