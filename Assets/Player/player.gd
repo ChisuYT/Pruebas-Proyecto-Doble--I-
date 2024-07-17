@@ -1,16 +1,22 @@
 extends CharacterBody2D
 
+var combo_cont = 1
+var punch_action : bool = false
+@export var can_move : bool = true
 @export var move_speed : float = 120
 #@export var run_speed : float = 180
 @export var jump_speed : float = 300
 @export var can_dash : bool = true # Variable para controlar si se puede hacer dash
-@export var dash_action : bool = false # Variable para detectar si se esta haciendo dash
+var dash_action : bool = false # Variable para detectar si se esta haciendo dash
 @export var dash_speed : float = 300 # Variable para controlar la velocidad del dash
+@export var dash_cooldown : float = 1.3
 var last_direction = Vector2.RIGHT # Variable para almacenar la última dirección	
 @onready var animacion = $AnimatedSprite2D
 @onready var dashDuration = $dashDuration
 @onready var dashCooldown = $dashCooldown
 @onready var dashAnim = $GPUParticles2D
+@onready var attackAnim = $attackAnim
+@onready var comboTimer = $comboTimer
 var facing_right = true
 var strong_gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -26,10 +32,14 @@ enum State {
 
 var current_state = State.IDLE
 
+func _ready():
+	dashCooldown.wait_time = dash_cooldown # colocarle el tiempo de espera guardado en la variavle del cooldown al timer
+
 func _physics_process(delta):
 	gravity(delta)
 	move_x(delta)
 	dash()
+	punch()
 	jump()
 	flip()
 	move_and_slide()
@@ -40,13 +50,13 @@ func gravity(delta):
 
 func move_x(delta):
 	var input_axis = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-	
-	if dash_action:
-		velocity.x = last_direction.x * dash_speed
-	else:
-		velocity.x = input_axis * move_speed
-		if input_axis != 0:
-			last_direction = Vector2(input_axis, 0).normalized() # Actualiza la última dirección cuando se mueve
+	if can_move:
+		if dash_action:
+			velocity.x = last_direction.x * dash_speed
+		else:
+			velocity.x = input_axis * move_speed
+			if input_axis != 0:
+				last_direction = Vector2(input_axis, 0).normalized() # Actualiza la última dirección cuando se mueve
 	
 	# Esta condicional es para permitir que el personaje corra
 	#if Input.is_action_pressed("run"):
@@ -59,6 +69,47 @@ func jump():
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor():
 			velocity.y = -jump_speed
+
+func punch():
+	if Input.is_action_just_pressed("punch") and is_on_floor() and not punch_action:
+		match combo_cont:
+			1:
+				attackAnim.play("Jab")
+				punch_action = true
+				can_move = false
+				velocity.x = 0
+				comboTimer.start()
+				print("golpe #" + str(combo_cont))
+				combo_cont += 1
+				await attackAnim.animation_finished
+				punch_action = false
+				can_move = true
+				
+			2:
+				attackAnim.play("Jab")
+				punch_action = true
+				can_move = false
+				velocity.x = 0
+				print("golpe #" + str(combo_cont))
+				combo_cont += 1
+				await attackAnim.animation_finished
+				punch_action = false
+				can_move = true
+			3:
+				attackAnim.play("Cross")
+				punch_action = true
+				can_move = false
+				velocity.x = 0
+				print("golpe #" + str(combo_cont))
+				combo_cont = 0
+				await attackAnim.animation_finished
+				punch_action = false
+				can_move = true
+
+func _on_combo_timer_timeout():
+	print("Tiempo para compo finalizado")
+	#can_combo = false
+	combo_cont = 1
 
 func dash():
 	if can_dash and Input.is_action_just_pressed("dash"):
@@ -75,6 +126,7 @@ func _on_dash_duration_timeout():
 	dashCooldown.start()
 
 func _on_dash_cooldown_timeout():
+	dashCooldown.wait_time = dash_cooldown # colocarle el tiempo de espera guardado en la variavle del cooldown al timer
 	can_dash = true
 
 func flip():
