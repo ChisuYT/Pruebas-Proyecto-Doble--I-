@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b5a8tflcstjmv"]
 
-[ext_resource type="PackedScene" uid="uid://dib43bp5gd14n" path="res://Assets/Player/player.tscn" id="1_7iffb"]
+[ext_resource type="PackedScene" path="res://Assets/Player/player.tscn" id="1_7iffb"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_57f44"]
 specular_color = Color(0, 0, 0, 1)
