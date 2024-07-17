@@ -23,7 +23,6 @@ GLOBAL="*res://Assets/Autoloads/GLOBAL.gd"
 
 window/size/viewport_width=240
 window/size/viewport_height=135
-window/size/mode=1
 window/size/resizable=false
 window/size/window_width_override=1280
 window/size/window_height_override=720
