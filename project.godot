@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Pruebas Proyecto Doble I"
-run/main_scene="res://Assets/Levels/level1.tscn"
+run/main_scene="res://Assets/Menu/menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -21,9 +21,9 @@ GLOBAL="*res://Assets/Autoloads/GLOBAL.gd"
 
 [display]
 
-window/size/viewport_width=320
+window/size/viewport_width=240
 window/size/viewport_height=135
-window/size/mode=3
+window/size/mode=1
 window/size/resizable=false
 window/size/window_width_override=1280
 window/size/window_height_override=720

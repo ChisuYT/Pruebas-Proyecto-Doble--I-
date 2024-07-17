@@ -18,7 +18,6 @@ var strong_gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 enum State {
 	IDLE,
 	MOVING,
-	RUNNING,
 	DASHING,
 	JUMPING,
 	FALLING,
@@ -130,9 +129,6 @@ func change_state(new_state):
 				print("Personaje dasheando")
 				animacion.play("Dash")
 				dashAnim.emitting = true
-			State.RUNNING:
-				print("Personaje corriendo")
-				animacion.play("Run")
 			State.JUMPING:
 				print("Personaje saltando")
 				animacion.play("Jump")

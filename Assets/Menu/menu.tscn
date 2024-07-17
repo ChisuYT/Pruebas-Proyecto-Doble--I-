@@ -42,51 +42,52 @@ offset_right = 96.0
 grow_vertical = 2
 color = Color(0.161631, 0.592907, 0.76525, 1)
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(48, 68)
-scale = Vector2(0.519531, 0.503906)
+[node name="Godot" type="Sprite2D" parent="."]
+position = Vector2(34.375, 75.7848)
+scale = Vector2(0.306641, 0.297418)
 texture = ExtResource("1_hey3p")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Titulo" type="Sprite2D" parent="."]
+position = Vector2(121, 16)
+scale = Vector2(0.195786, 0.274621)
+texture = ExtResource("3_rn8a3")
+
+[node name="Unity" type="Sprite2D" parent="."]
+position = Vector2(204, 78)
+scale = Vector2(0.115972, 0.113605)
+texture = ExtResource("2_1tprc")
+
+[node name="ContenedorBotones" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -86.0
-offset_right = 40.0
+offset_left = -36.0
+offset_top = -96.0
+offset_right = 36.0
+offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Play" type="Button" parent="VBoxContainer"]
+[node name="Play" type="Button" parent="ContenedorBotones"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 13
 text = "Jugar"
 
-[node name="Opciones" type="Button" parent="VBoxContainer"]
+[node name="Opciones" type="Button" parent="ContenedorBotones"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 13
 text = "Opciones"
 
-[node name="Salir" type="Button" parent="VBoxContainer"]
+[node name="Salir" type="Button" parent="ContenedorBotones"]
 texture_filter = 1
 texture_repeat = 3
 layout_mode = 2
 theme_override_font_sizes/font_size = 13
 text = "Salir"
 
-[node name="Unity" type="Sprite2D" parent="."]
-position = Vector2(272, 66)
-scale = Vector2(0.204167, 0.2)
-texture = ExtResource("2_1tprc")
-
-[node name="Image" type="Sprite2D" parent="."]
-position = Vector2(159, 17)
-scale = Vector2(0.261948, 0.367424)
-texture = ExtResource("3_rn8a3")
-
-[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="VBoxContainer/Opciones" to="." method="_on_opciones_pressed"]
-[connection signal="pressed" from="VBoxContainer/Salir" to="." method="_on_salir_pressed"]
+[connection signal="pressed" from="ContenedorBotones/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="ContenedorBotones/Opciones" to="." method="_on_opciones_pressed"]
+[connection signal="pressed" from="ContenedorBotones/Salir" to="." method="_on_salir_pressed"]
