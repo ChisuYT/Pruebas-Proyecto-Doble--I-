@@ -1,16 +1,46 @@
-[gd_scene load_steps=40 format=3 uid="uid://dib43bp5gd14n"]
+[gd_scene load_steps=59 format=3 uid="uid://dib43bp5gd14n"]
 
 [ext_resource type="Texture2D" uid="uid://dkw8yne4slnob" path="res://Assets/Player/Sprites/Player Idle 48x48.png" id="1_7blbm"]
 [ext_resource type="Script" path="res://Assets/Player/player.gd" id="1_gfud6"]
 [ext_resource type="Texture2D" uid="uid://ddf8e5jukmfbt" path="res://Assets/Player/Sprites/player dash.png" id="2_e6iyt"]
 [ext_resource type="Texture2D" uid="uid://dv6awjjalt85o" path="res://Assets/Player/Sprites/player run 48x48.png" id="2_lq1yu"]
 [ext_resource type="Texture2D" uid="uid://cmihw7nce5jvb" path="res://Assets/Player/Sprites/player jump 48x48.png" id="2_mtnn7"]
+[ext_resource type="Texture2D" uid="uid://bgq7eevkogg0m" path="res://Assets/Player/Sprites/Player Punch Cross 64x64.png" id="3_3fiqi"]
 [ext_resource type="Texture2D" uid="uid://4mt2l2ov0r84" path="res://Assets/Player/Sprites/PlayerWalk 48x48.png" id="3_rso11"]
+[ext_resource type="Texture2D" uid="uid://0dgylr5lctp7" path="res://Assets/Player/Sprites/Player Jab 48x48.png" id="7_bdxxe"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bcp3q"]
 particle_flag_disable_z = true
 gravity = Vector3(-98, 10, 0)
 color = Color(1, 1, 1, 0.14902)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_skajw"]
+atlas = ExtResource("3_3fiqi")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ry5ix"]
+atlas = ExtResource("3_3fiqi")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jycb"]
+atlas = ExtResource("3_3fiqi")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7j14c"]
+atlas = ExtResource("3_3fiqi")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nmwu"]
+atlas = ExtResource("3_3fiqi")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jv0sf"]
+atlas = ExtResource("3_3fiqi")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syqcp"]
+atlas = ExtResource("3_3fiqi")
+region = Rect2(384, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_chsbj"]
 atlas = ExtResource("2_lq1yu")
@@ -59,6 +89,26 @@ region = Rect2(384, 0, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_uy6qv"]
 atlas = ExtResource("1_7blbm")
 region = Rect2(432, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8r2hf"]
+atlas = ExtResource("7_bdxxe")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvr45"]
+atlas = ExtResource("7_bdxxe")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mr0s"]
+atlas = ExtResource("7_bdxxe")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbi6m"]
+atlas = ExtResource("7_bdxxe")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5dfv"]
+atlas = ExtResource("7_bdxxe")
+region = Rect2(288, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6nrok"]
 atlas = ExtResource("2_mtnn7")
@@ -136,6 +186,32 @@ region = Rect2(336, 0, 48, 48)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_skajw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ry5ix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8jycb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7j14c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nmwu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jv0sf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_syqcp")
+}],
+"loop": false,
+"name": &"Cross",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_chsbj")
 }],
 "loop": true,
@@ -184,6 +260,29 @@ animations = [{
 "loop": true,
 "name": &"Idle",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8r2hf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lvr45")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lvr45")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mr0s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbi6m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5dfv")
+}],
+"loop": false,
+"name": &"Jab",
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -263,8 +362,164 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dglip"]
 size = Vector2(15, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_htgjm"]
+size = Vector2(20.7188, 22)
+
+[sub_resource type="Animation" id="Animation_cqb0s"]
+resource_name = "Jab"
+length = 0.19
+step = 0.035
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Jab"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.03, 0.06, 0.105, 0.14, 0.175),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("attackCollision:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.035, 0.175),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("attackCollision:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.07),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(7, -5), Vector2(19, -5)]
+}
+
+[sub_resource type="Animation" id="Animation_43flp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("attackCollision:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(7, -5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("attackCollision:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4vxem"]
+resource_name = "Cross"
+length = 0.4
+step = 0.035
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Cross"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.175, 0.245, 0.315, 0.385),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("attackCollision:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.315),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("attackCollision:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.07),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(7, -5), Vector2(30.6406, -6)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("attackCollision:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.175, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qsr5o"]
+_data = {
+"Cross": SubResource("Animation_4vxem"),
+"Jab": SubResource("Animation_cqb0s"),
+"RESET": SubResource("Animation_43flp")
+}
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_gfud6")
+dash_cooldown = 0.5
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(-4, -6)
@@ -279,8 +534,7 @@ one_shot = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -6)
 sprite_frames = SubResource("SpriteFrames_g7rcs")
-animation = &"Dash"
-frame_progress = 0.938832
+animation = &"Cross"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)
@@ -291,8 +545,22 @@ wait_time = 0.25
 one_shot = true
 
 [node name="dashCooldown" type="Timer" parent="."]
-wait_time = 1.5
+one_shot = true
+
+[node name="attackCollision" type="CollisionShape2D" parent="."]
+position = Vector2(7, -5)
+shape = SubResource("RectangleShape2D_htgjm")
+disabled = true
+
+[node name="attackAnim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qsr5o")
+}
+
+[node name="comboTimer" type="Timer" parent="."]
+wait_time = 0.7
 one_shot = true
 
 [connection signal="timeout" from="dashDuration" to="." method="_on_dash_duration_timeout"]
 [connection signal="timeout" from="dashCooldown" to="." method="_on_dash_cooldown_timeout"]
+[connection signal="timeout" from="comboTimer" to="." method="_on_combo_timer_timeout"]
