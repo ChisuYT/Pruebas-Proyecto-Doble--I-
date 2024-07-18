@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b5a8tflcstjmv"]
 
 [ext_resource type="Texture2D" uid="uid://bt6tmqomo5psj" path="res://Assets/Levels/Assets/Dungeon Tile Set/Dungeon Tile Set.png" id="1_1q163"]
-[ext_resource type="PackedScene" path="res://Assets/Player/player.tscn" id="1_7iffb"]
+[ext_resource type="PackedScene" uid="uid://dib43bp5gd14n" path="res://Assets/Player/player.tscn" id="1_7iffb"]
 [ext_resource type="TileSet" uid="uid://donh21kounoiu" path="res://Assets/Levels/Assets/level1.tres" id="2_c7mi2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2spr2"]
@@ -162,6 +162,18 @@ layer_0/tile_data = PackedInt32Array(720905, 655360, 10, 786441, 655360, 10, 851
 
 [node name="Player" parent="." instance=ExtResource("1_7iffb")]
 position = Vector2(28, 97)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(14, 4)
+zoom = Vector2(0.8, 0.8)
+limit_smoothed = true
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+drag_left_margin = 0.69
+drag_top_margin = 0.75
+drag_right_margin = 0.78
+editor_draw_limits = true
+editor_draw_drag_margin = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
